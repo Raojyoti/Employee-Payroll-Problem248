@@ -43,7 +43,14 @@ select Count(Salary) as Total_Count_Salary_Of_Male_And_Female from employee_payr
 
 --UC8 Extend employee_payroll data to store employee information like employee phone, address and department
 alter table employee_payroll add Phone_Number bigint, Address varchar(200), Department varchar(100) NOT NULL default 'Test';
-update employee_payroll set Phone_Number=1111111111, Address='Agra', Department='Account' where name='Terisa';
-update employee_payroll set Phone_Number=2222222222, Address='Meerut', Department='HR' where name='Charlies';
-update employee_payroll set Phone_Number=3333333333, Address='Bulandshahr', Department='IT' where name='Bill';
-update employee_payroll set Phone_Number=4444444444, Address='Noida', Department='Developer' where name='Mark';
+update employee_payroll set Phone_Number=1111111111, Address='Agra', Department='Account' where Name='Terisa';
+update employee_payroll set Phone_Number=2222222222, Address='Meerut', Department='HR' where Name='Charlies';
+update employee_payroll set Phone_Number=3333333333, Address='Bulandshahr', Department='IT' where Name='Bill';
+update employee_payroll set Phone_Number=4444444444, Address='Noida', Department='Developer' where Name='Mark';
+
+--UC9 Ability to extend employee_payroll table to have Basic Pay, Deductions, Taxable Pay, Income Tax, Net Pay
+alter table employee_payroll add Basic_Pay float, Deductions float, Taxable_Pay float, Income_Tax float, Net_Pay float ;
+update employee_payroll set Basic_Pay=60000, Deductions=25000, Taxable_Pay=3000,Income_Tax=1500,Net_Pay=45000000 where Name='Terisa';
+update employee_payroll set Basic_Pay=50000, Deductions=5000, Taxable_Pay=2000,Income_Tax=1800,Net_Pay=5000000 where Name='Charlies';
+update employee_payroll set Basic_Pay=65000, Deductions=2000, Taxable_Pay=3500,Income_Tax=2500,Net_Pay=55000000 where Name='Bill';
+update employee_payroll set Basic_Pay=70000, Deductions=35000, Taxable_Pay=4000,Income_Tax=4500,Net_Pay=75000000 where Name='Mark';
